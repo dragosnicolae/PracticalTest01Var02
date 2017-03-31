@@ -15,9 +15,6 @@ import java.util.Random;
 public class ProcessingThread extends Thread {
 
     private Context context = null;
-    private boolean isRunning = true;
-
-    private Random random = new Random();
 
     private int sum;
     private int dif;
@@ -32,15 +29,15 @@ public class ProcessingThread extends Thread {
     @Override
     public void run() {
         Log.d("[ProcessingThread]", "Thread has started!");
-            sendMessage(sum);
+            sendMessage(sum, 0);
             sleep();
-            sendMessage(dif);
+            sendMessage(dif, 1);
         Log.d("[ProcessingThread]", "Thread has stopped!");
     }
 
-    private void sendMessage(int val) {
+    private void sendMessage(int val, int ind) {
         Intent intent = new Intent();
-        intent.setAction(Constants.actionTypes[random.nextInt(Constants.actionTypes.length)]);
+        intent.setAction(Constants.actionTypes[ind]);
         intent.putExtra("message", val);
         context.sendBroadcast(intent);
     }
@@ -51,10 +48,6 @@ public class ProcessingThread extends Thread {
         } catch (InterruptedException interruptedException) {
             interruptedException.printStackTrace();
         }
-    }
-
-    public void stopThread() {
-        isRunning = false;
     }
 
 }

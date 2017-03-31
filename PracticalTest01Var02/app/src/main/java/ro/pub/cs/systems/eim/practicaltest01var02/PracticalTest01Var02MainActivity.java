@@ -40,17 +40,29 @@ public class PracticalTest01Var02MainActivity extends AppCompatActivity {
                     int sum = val1 + val2;
                     str = val1 + "+" + val2 + "=" + sum;
                     text.setText(String.valueOf(sum));
+
+                    Intent intent = new Intent(getApplicationContext(), PracticalTest01Var02Service.class);
+                    intent.putExtra("firstNumber", val1);
+                    intent.putExtra("secondNumber", val2);
+                    //getApplicationContext().startService(intent);
+
                     break;
                 case R.id.minus:
                     int dif = val1-val2;
                     str = val1 + "-" + val2 + "=" + dif;
                     text.setText(String.valueOf(dif));
+
+                    Intent intent2 = new Intent(getApplicationContext(), PracticalTest01Var02Service.class);
+                    intent2.putExtra("firstNumber", val1);
+                    intent2.putExtra("secondNumber", val2);
+                    //getApplicationContext().startService(intent2);
+
                     break;
 
                 case R.id.second:
-                    Intent intent = new Intent(getApplicationContext(), PracticalTest01Var02SecondaryActivity.class);
-                    intent.putExtra("str", str);
-                    startActivityForResult(intent, 1);
+                    Intent intent3 = new Intent(getApplicationContext(), PracticalTest01Var02SecondaryActivity.class);
+                    intent3.putExtra("str", str);
+                    startActivityForResult(intent3, 1);
                     break;
             }
         }

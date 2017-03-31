@@ -18,7 +18,7 @@ public class PracticalTest01Var02Service extends Service {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        processingThread.stopThread();
+        stopSelf();
         return Service.START_REDELIVER_INTENT;
     }
 
@@ -29,6 +29,6 @@ public class PracticalTest01Var02Service extends Service {
 
     @Override
     public void onDestroy() {
-        processingThread.stopThread();
+
     }
 }
