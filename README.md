@@ -1,2 +1,5 @@
 # PracticalTest01Var02
-Colocviu 1 EIM
+
+### Nume: Nicolae Dragos
+
+### Grupa: 343C1
